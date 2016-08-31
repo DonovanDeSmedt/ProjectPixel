@@ -34,43 +34,11 @@ public class Security {
          * De keygen (BigDecimal) voor de eenvoudigheid naar een String omzetten.
          */
         this.key = keygen.toString().substring(2);
-
-       /* SecureRandom random = new SecureRandom();
-        *//**
-         * Encryptionkey = random number 10 - 99
-         *//*
-        encryptionKey += 10 + random.nextInt(90);
-        encryptionKey += type.charAt(random.nextInt(3));
-        encryptionKey += 10 + random.nextInt(90);
-        createKey(encryptionKey);*/
     }
     public String getEncryptionKey()
     {
         return "Done";
-    }/*
-    public void createKey(String key)
-    {
-        String encryptionKey = key;
-        int part1 = Integer.parseInt(encryptionKey.substring(0, 2));
-        int part2 = Integer.parseInt(encryptionKey.substring(3,5));
-        int newKey = part1 + part2;
-        char type = Character.toLowerCase(encryptionKey.charAt(2));
-        setKey(newKey, type);
     }
-    private void setKey(int key, char type)
-    {
-        switch(type)
-        {
-            case 'x': this.keygen = new BigDecimal(Math.abs(Math.sin(key))); break;
-            case 'y': this.keygen = new BigDecimal(Math.abs(Math.cos(key))); break;
-            case 'z': this.keygen = new BigDecimal(Math.abs(Math.tan(key))); break;
-        }
-        this.keygen.add(pi);
-        *//**
-         * De keygen (BigDecimal) voor de eenvoudigheid naar een String omzetten.
-         *//*
-        this.key = keygen.toString().substring(2);
-    }*/
     public int encrypteer(int i)
     {   
         /**
