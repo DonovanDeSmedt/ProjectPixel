@@ -80,14 +80,14 @@ public class Pixel
          * i % 46 Dit omwille van het feit dat de key maar 46 characters lang is
          * en men steeds 2 charcters neemt dus laatst mogelijke is 45.
          */
-        BufferedImage img = new BufferedImage(width, heigth, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage img = new BufferedImage(width, heigth, BufferedImage.TYPE_4BYTE_ABGR);
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < heigth; j++)
             {
                 if((heigth * i)+j == kleuren.size())
                     break;
-                int a = 123;
+                int a = 100;
                 int r = (kleuren.get((heigth*i)+j).getR() + s.encrypteer(i % 43))%256;
                 int g = (kleuren.get((heigth*i)+j).getG() + s.encrypteer(i % 43))%256;
                 int b = (kleuren.get((heigth*i)+j).getB() + s.encrypteer(i % 43))%256;
@@ -127,7 +127,7 @@ public class Pixel
         {
             for (int col = 0; col < height; col++)
             {
-                Color c = new Color(img.getRGB(row, col));
+                Color c = new Color(img.getRGB(row, col), true);
 
                 red = c.getRed() - s.encrypteer(row%43);
                 if (red < 0)
@@ -138,7 +138,6 @@ public class Pixel
                 blue = c.getBlue() - s.encrypteer(row%43);
                 if(blue < 0)
                     blue += 256;
-                    
                 ingelezenPixelLijst.add(new RGB(red, green, blue));
                 /**
                  * De grootte van de progressbar aanpassen,

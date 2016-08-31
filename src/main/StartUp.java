@@ -18,7 +18,7 @@ public class StartUp extends Application
         //DomeinController dc = new DomeinController();
         //new Uitvoer(dc);
         PixelSchermController ps = new PixelSchermController();
-        Scene scene = new Scene(ps, 500, 399);
+        Scene scene = new Scene(ps, 840, 400);
         
         primaryStage.setTitle("Project Pixel");
         primaryStage.setScene(scene);

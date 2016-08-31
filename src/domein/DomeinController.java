@@ -44,11 +44,11 @@ public class DomeinController
         p = new Pixel(pm,s,pr);
         t = new Text(pm);       
     }
-    public void encrypt(String bestandsNaam, String extension){
+    public void encrypt(String bestandsNaam, String extension, String key){
         /**
          * De encryptionskey genereren en setten in de klasse Pixel.
          */
-        generateEncryptionKey();
+        generateEncryptionKey(key);
         /**
          * Op een nieuwe thread het encryptieproces starten.
          */
@@ -62,7 +62,7 @@ public class DomeinController
         /**
          * De encryptionkey setten in de klasse Pixel.
          */
-        s.createKey(key);
+        generateEncryptionKey(key);
         /**
          * Op een nieuwe thread het decryptieproces starten.
          */
@@ -73,9 +73,9 @@ public class DomeinController
     public void showDecryptionStatus(){
         pr.notifyAllObservers((double) time / 10, p.getAmountOfWords());
     }
-    public void generateEncryptionKey()
+    public void generateEncryptionKey(String key)
     {
-        s.generateEncryptionKey();
+        s.generateEncryptionKey(key);
     }
     public String getEncryptionKey(){
         return s.getEncryptionKey();
